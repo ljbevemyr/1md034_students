@@ -10,14 +10,102 @@
         <section> 
           <h2>Välj din burgare</h2>
           <p>Det är här du väljer vilken burgare du vill ha</p>
-          <h3>Burgare 1</h3>
-            <img src="https://cdn.donnahaycdn.com.au/images/content-images/katsu_curry_fried_chicken_burger.jpg" alt="Burgare 1" title="Burgare 1" width="100">
+
+          <table>
+            <thead>
+              <tr>
+                <th>Fire burger</th>
+                <th>Sea burger</th>
+                <th>Mountain burger</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td VALIGN = Middle Align = Center>
+                  <img src="https://cdn.donnahaycdn.com.au/images/content-images/katsu_curry_fried_chicken_burger.jpg" alt="Fire burger" title="Not cold as ice" width="100">
+                </td>
+                <td VALIGN = Middle Align = Center>
+                  <img src="https://i.pinimg.com/564x/65/2a/c7/652ac7f97b4440364565e15042aad6d7.jpg" alt="Sea burger" title="Fortsätt simma" width="100">
+                </td>
+                <td VALIGN = Middle Align = Center>
+                  <img src="https://i.pinimg.com/564x/0d/6d/a8/0d6da8c391219fc28be87a312962321b.jpg" alt="Mountain burger" title="Ain't no mountain high enough" width="100">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <ul>
+                    <li>Riktigt het</li>
+                    <li>Jalepeno, hickory, hot sause och tabasco</li>
+                    <li>Tufft bröd</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>Fisk från vattnet</li>
+                    <li>Spår av sjöljungfruhost</li>
+                    <li>Flytande bröd</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>Bergsgetternas favorit</li>
+                    <li>Grönt från fågel, fisk och mittemellan</li>
+                    <li>Flygande bröd</li>
+                  </ul>
+                </td>
+              </tr>
+          </table>
         </section>
         <section>
           <h2>Kund information</h2>
           <p>Här uppger du viktig information</p>
-      </section>
+          <h3>Leverans</h3>
+          <form>
+            <p>
+              <label for="fullt namn">Namn</label><br>
+              <input type="text" id="namn" name="n" required="required" placeholder="Kalle anka">
+            </p>
+            <p>
+              <label for="email">Email</label><br>
+              <input type="text" id="email" name="e" required="required" placeholder="kalle@anka.se">
+            </p>
+            <p>
+              <label for="gata">Gata</label><br>
+              <input type="text" id="gata" name="g" required="required" placeholder="Vintergatan">
+            </p>
+            <p>
+              <label for="husnummer">Husnummer</label><br>
+              <input type="text" id="husnummer" name="hn" required="required" placeholder="42">
+            </p>
+          </form>
+          
+          <p>
+            <label for="betalmetod">Betalmetod</label><br>
+            <select id="betalmetod" name="bm">
+              <option>Bitcoin</option>
+              <option>Kort</option>
+              <option>Monopol</option>
+              <option>Trisslott</option>
+              <option>Kungens guld</option>
+            </select>
+          </p>
+
+          <form>
+            <label for="identitet">Identitet</label><br>
+            <p>
+              <input type="radio" id="hemlig agent" name="i"> Hemlig agent
+            </p>
+            <p>
+              <input type="radio" id="enhörning" name="i"> Enhörning
+            </p>
+            <p>
+              <input type="radio" id="clark kent" name="i"> Clark Kent
+            </p>
+          </form>
+          <button type="submit"><img src="https://i.cdn.nrholding.net/38806113/" width="30"> Send Info</button>
+        </section>
     </main>
+    <hr>
     <footer>
       Lisa Bevemyr beautiful burgers inc.
     </footer>
