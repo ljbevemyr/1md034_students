@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Burger blance!</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Heebo" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+    <title>Burger station</title>
     <meta charset="utf-8"/>
   </head>
   <body>
     <main>
-      <h1>Välkommen till BurgerOnline</h1>
-        <section> 
+      <h1>Välkommen till Burger station</h1>
+        <section id="display"> 
           <h2>Välj din burgare</h2>
           <p>Det är här du väljer vilken burgare du vill ha</p>
 
-          <table>
+          <table class="center">
             <thead>
               <tr>
                 <th>Fire burger</th>
@@ -22,13 +25,13 @@
             <tbody>
               <tr>
                 <td VALIGN = Middle Align = Center>
-                  <img src="https://cdn.donnahaycdn.com.au/images/content-images/katsu_curry_fried_chicken_burger.jpg" alt="Fire burger" title="Not cold as ice" width="100">
+                  <img src="https://www.bacoaburger.com/wp-content/uploads/labacoa-bacoa-burger-426x278.jpg" alt="Fire burger" title="Not cold as ice" width="250">
                 </td>
                 <td VALIGN = Middle Align = Center>
-                  <img src="https://i.pinimg.com/564x/65/2a/c7/652ac7f97b4440364565e15042aad6d7.jpg" alt="Sea burger" title="Fortsätt simma" width="100">
+                  <img src="https://www.bacoaburger.com/wp-content/uploads/b-montesa-2-394x278.jpg" alt="Sea burger" title="Fortsätt simma" width="250">
                 </td>
                 <td VALIGN = Middle Align = Center>
-                  <img src="https://i.pinimg.com/564x/0d/6d/a8/0d6da8c391219fc28be87a312962321b.jpg" alt="Mountain burger" title="Ain't no mountain high enough" width="100">
+                  <img src="https://www.bacoaburger.com/wp-content/uploads/australiana-bacoa-burger-392x278.jpg" alt="Mountain burger" title="Ain't no mountain high enough" width="250">
                 </td>
               </tr>
               <tr>
@@ -36,14 +39,14 @@
                   <ul>
                     <li>Riktigt het</li>
                     <li>Jalepeno, hickory, hot sause och tabasco</li>
-                    <li>Tufft bröd</li>
+                    <li>Tufft bröd (<span id="gluten">gluten</span>)</li>
                   </ul>
                 </td>
                 <td>
                   <ul>
                     <li>Fisk från vattnet</li>
                     <li>Spår av sjöljungfruhost</li>
-                    <li>Flytande bröd</li>
+                    <li>Flytande bröd (<span id="gluten">gluten</span>)</li>
                   </ul>
                 </td>
                 <td>
@@ -56,11 +59,11 @@
               </tr>
           </table>
         </section>
-        <section>
+        <section id="information">
           <h2>Kund information</h2>
           <p>Här uppger du viktig information</p>
           <h3>Leverans</h3>
-          <form>
+          <form id="box">
             <p>
               <label for="fullt namn">Namn</label><br>
               <input type="text" id="namn" name="n" required="required" placeholder="Kalle anka">
@@ -78,8 +81,10 @@
               <input type="text" id="husnummer" name="hn" required="required" placeholder="42">
             </p>
           </form>
+
+          <img src="http://freevector.co/wp-content/uploads/2009/10/60920-two-down-arrows.png" alt="arrow" title="arrow" id="arrow" width="50">
           
-          <p>
+          <p id="box">
             <label for="betalmetod">Betalmetod</label><br>
             <select id="betalmetod" name="bm">
               <option>Bitcoin</option>
@@ -90,7 +95,9 @@
             </select>
           </p>
 
-          <form>
+          <img src="http://freevector.co/wp-content/uploads/2009/10/60920-two-down-arrows.png" alt="arrow" title="arrow" id="arrow" width="50">
+
+          <form id="box">
             <label for="identitet">Identitet</label><br>
             <p>
               <input type="radio" id="hemlig agent" name="i"> Hemlig agent
