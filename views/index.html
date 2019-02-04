@@ -2,119 +2,193 @@
 <html lang="en">
   <head>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type="text/javascript" src="js/menu.js" defer></script>
+    <!--<script src="js/js_script.js" defer></script>-->
+    <script src="https://vuejs.org/js/vue.js" defer></script>
+    <script src="js/vue_script.js" defer></script>
+    <link rel="icon" type="img/gif/png" href="Https://www.bacoaburger.com/wp-content/uploads/labacoa-bacoa-burger-426x278.jpg">
     <link href="https://fonts.googleapis.com/css?family=Heebo" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
-    <title>Burger station</title>
+    <title>Burger co.</title>
     <meta charset="utf-8"/>
   </head>
   <body>
     <main>
-      <h1>Välkommen till Burger station</h1>
-        <section id="display"> 
-          <h2>Välj din burgare</h2>
-          <p>Det är här du väljer vilken burgare du vill ha</p>
+      <header>
+        <img src="https://janniolssondeler.com/wp-content/uploads/2019/01/janni-deler-bush-radio-lombok-2.jpg" alt="header" title="header" id="header">
+        <h1>Välkommen till Burger co.</h1>
+      </header>
+      <section id="display">
 
-          <table class="center">
-            <thead>
-              <tr>
-                <th>Fire burger</th>
-                <th>Sea burger</th>
-                <th>Mountain burger</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td VALIGN = Middle Align = Center>
-                  <img src="https://www.bacoaburger.com/wp-content/uploads/labacoa-bacoa-burger-426x278.jpg" alt="Fire burger" title="Not cold as ice" width="250">
-                </td>
-                <td VALIGN = Middle Align = Center>
-                  <img src="https://www.bacoaburger.com/wp-content/uploads/b-montesa-2-394x278.jpg" alt="Sea burger" title="Fortsätt simma" width="250">
-                </td>
-                <td VALIGN = Middle Align = Center>
-                  <img src="https://www.bacoaburger.com/wp-content/uploads/australiana-bacoa-burger-392x278.jpg" alt="Mountain burger" title="Ain't no mountain high enough" width="250">
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <ul>
-                    <li>Riktigt het</li>
-                    <li>Jalepeno, hickory, hot sause och tabasco</li>
-                    <li>Tufft bröd (<span id="gluten">gluten</span>)</li>
-                  </ul>
-                </td>
-                <td>
-                  <ul>
-                    <li>Fisk från vattnet</li>
-                    <li>Spår av sjöljungfruhost</li>
-                    <li>Flytande bröd (<span id="gluten">gluten</span>)</li>
-                  </ul>
-                </td>
-                <td>
-                  <ul>
-                    <li>Bergsgetternas favorit</li>
-                    <li>Grönt från fågel, fisk och mittemellan</li>
-                    <li>Flygande bröd</li>
-                  </ul>
-                </td>
-              </tr>
-          </table>
-        </section>
-        <section id="information">
-          <h2>Kund information</h2>
-          <p>Här uppger du viktig information</p>
-          <h3>Leverans</h3>
-          <form id="box">
-            <p>
-              <label for="fullt namn">Namn</label><br>
-              <input type="text" id="namn" name="n" required="required" placeholder="Kalle anka">
-            </p>
-            <p>
-              <label for="email">Email</label><br>
-              <input type="text" id="email" name="e" required="required" placeholder="kalle@anka.se">
-            </p>
-            <p>
-              <label for="gata">Gata</label><br>
-              <input type="text" id="gata" name="g" required="required" placeholder="Vintergatan">
-            </p>
-            <p>
-              <label for="husnummer">Husnummer</label><br>
-              <input type="text" id="husnummer" name="hn" required="required" placeholder="42">
-            </p>
-          </form>
+        <h2>Välj din burgare</h2>
+        <p>Välj balnd någon av våra fantastiska burgare! Vi har något för alla, det kan jag lova. Om du trotts allt inte är sugen på något av detta går det bra att komponera ihop din egna burgare, lägga till något eller dra av. Vi är väldigt flexibelt folk här på resturangen och hoppas du ska njuta!</p>
 
-          <img src="http://freevector.co/wp-content/uploads/2009/10/60920-two-down-arrows.png" alt="arrow" title="arrow" id="arrow" width="50">
-          
-          <p id="box">
-            <label for="betalmetod">Betalmetod</label><br>
-            <select id="betalmetod" name="bm">
-              <option>Bitcoin</option>
-              <option>Kort</option>
-              <option>Monopol</option>
-              <option>Trisslott</option>
-              <option>Kungens guld</option>
-            </select>
+        <!--<div id="menuJava" class="wrapper"></div>-->
+        
+        <div id="menuList" class="wrapper">
+          <div v-for="burger in burgers" class="box" v-bind:class=burger.grid>
+            <h3> {{ burger.burgerName }} </h3>
+            <input type="checkbox" v-bind:id=burger.burgerName name="b" class="burgerCheck">
+            <img v-bind:src=burger.image title="Burger" width=300px>
+            <ul>
+              <li> {{ burger.burgerSpice }} </li>
+              <li> {{ burger.allergies }} </li>
+          <div>
+        </div>
+        
+        <!--<div class="wrapper">
+            <div class="box fire">
+              Fire burger<br>
+              <img src="https://www.bacoaburger.com/wp-content/uploads/labacoa-bacoa-burger-426x278.jpg" alt="Fire burger" title="Not cold as ice" width="300">
+            <ul>
+              <li>Riktigt het</li>
+              <li>Jalepeno, hickory, hot sauce och tabasco</li>
+              <li>Tufft bröd (<span id="gluten">gluten</span>)</li>
+            </ul>
+          </div>
+          <div class="box sea">
+            Sea burger<br>
+            <img src="https://www.bacoaburger.com/wp-content/uploads/b-montesa-2-394x278.jpg" alt="Sea burger" title="Fortsätt simma" width="300">
+            <ul>
+              <li>Fisk från vattnet</li>
+              <li>Spår av sjöljungfruhost</li>
+              <li>Flytande bröd (<span id="gluten">gluten</span>)</li>
+            </ul>
+          </div>
+          <div class="box mountain">
+            Mountain burger<br>
+            <img src="https://www.bacoaburger.com/wp-content/uploads/australiana-bacoa-burger-392x278.jpg" alt="Mountain burger" title="Ain't no mountain high enough" width="300">
+            <ul>
+              <li>Bergsgetternas favorit</li>
+              <li>Grönt från fågel, fisk och mittemellan</li>
+              <li>Flygande bröd</li>
+            </ul>
+          </div>
+          <div class="box forest">
+            Forest burger<br>
+            <img src="https://www.bacoaburger.com/wp-content/uploads/japonesa-bacoa-burger-392x278.jpg" alt="Forest burger" title="Deep in the green" width="300">
+            <ul>
+              <li>Många höga smaktoppar</li>
+              <li>Innehåller barr</li>
+              <li>Mossigt bröd</li>
+            </ul>
+          </div>
+          <div class="box snow">
+            Snow burger<br>
+            <img src="https://www.bacoaburger.com/wp-content/uploads/clasica-bacoa-burger-395x278.jpg" alt="Snow burger" title="Yes, cold as ice" width="300">
+            <ul>
+              <li>Local fave</li>
+              <li>Don't eat yellow snow</li>
+              <li>Kallt bröd</li>
+            </ul>
+          </div>
+          <div class="box rain">
+            Rain burger<br>
+            <img src="https://www.bacoaburger.com/wp-content/uploads/manchego-bacoa-burger-392x278.jpg" alt="Rain burger" title="Singing in the rain" width="300">
+            <ul>
+              <li>Singing in the rain</li>
+              <li>It's raining men</li>
+              <li>Sjögurkor</li>
+            </ul>
+          </div>
+          <div class="box cloud">
+            Cloud burger<br>
+            <img src="https://www.bacoaburger.com/wp-content/uploads/roost-bacoa-burger-426x278.jpg" alt="Cloud burger" title="Abouve the clouds" width="300">
+            <ul>
+              <li>Kritiker beskriver den lite som luft</li>
+              <li>Innehåller ingenting</li>
+              <li>Flygande bröd</li>
+            </ul>
+          </div>
+          <div class="box wind">
+            Wind burger<br>
+            <img src="https://www.bacoaburger.com/wp-content/uploads/b-gvegano-389x278.jpg" alt="Wind burger" title="Burgers of the wind" width="300">
+            <Ul>
+              <li>Sjukt snabb</li>
+              <li>Passar bra med en Briska</li>
+              <li>Flygande bröd</li>
+            </ul>
+          </div>
+          <div class="box roompic">
+            <img src="https://janniolssondeler.com/wp-content/uploads/2019/01/janni-deler-bush-radio-lombok-5.jpg" alt="Room" title="Simply a cozy place" width="300">
+          </div>
+          <div class="box roomtext">
+            "hämtmat är livet.."
+          </div>
+        </div> -->
+      </section>
+      <section id="information">
+        <h2>Kundinformation</h2>
+        <h3>Leverans</h3>
+        <form id="box">
+          <p>
+            <label for="fullt namn">Namn</label><br>
+            <input type="text" id="namn" name="n" required="required" placeholder="Kalle anka">
           </p>
+          <p>
+            <label for="email">Email</label><br>
+            <input type="text" id="email" name="e" required="required" placeholder="kalle@anka.se">
+          </p>
+          <p>
+            <label for="gata">Gata</label><br>
+            <input type="text" id="gata" name="g" required="required" placeholder="Vintergatan">
+          </p>
+          <p>
+            <label for="husnummer">Husnummer</label><br>
+            <input type="text" id="husnummer" name="hn" required="required" placeholder="42">
+          </p>
+        </form>
 
-          <img src="http://freevector.co/wp-content/uploads/2009/10/60920-two-down-arrows.png" alt="arrow" title="arrow" id="arrow" width="50">
+        <img src="http://freevector.co/wp-content/uploads/2009/10/60920-two-down-arrows.png" alt="arrow" title="arrow" id="arrow" width="50">
+        
+        <p id="box">
+          <label for="betalmetod">Betalmetod</label><br>
+          <select id="betalmetod" name="bm">
+            <option>Bitcoin</option>
+            <option>Kort</option>
+            <option>Monopol</option>
+            <option>Trisslott</option>
+            <option>Kungens guld</option>
+          </select>
+        </p>
 
-          <form id="box">
-            <label for="identitet">Identitet</label><br>
-            <p>
-              <input type="radio" id="hemlig agent" name="i"> Hemlig agent
-            </p>
-            <p>
-              <input type="radio" id="enhörning" name="i"> Enhörning
-            </p>
-            <p>
-              <input type="radio" id="clark kent" name="i"> Clark Kent
-            </p>
-          </form>
-          <button type="submit"><img src="https://i.cdn.nrholding.net/38806113/" width="30"> Send Info</button>
-        </section>
+        <img src="http://freevector.co/wp-content/uploads/2009/10/60920-two-down-arrows.png" alt="arrow" title="arrow" id="arrow" width="50">
+
+        <form id="box">
+          <label for="identitet">Identitet</label><br>
+          <p>
+            <input type="radio" id="hemligAgent" name="i"> Hemlig agent
+          </p>
+          <p>
+            <input type="radio" id="enhörning" name="i"> Enhörning
+          </p>
+          <p>
+            <input type="radio" id="clarkKent" name="i"> Clark Kent
+          </p>
+          <p>
+            <input type="radio" id="farbrorBåtsman" name="i"> Farbror Båtsman
+          </p>
+        </form>
+        <!-- <button id="button" class="block">SKICKA IVÄG</button>-->
+        <div id="order">
+          <button v-on:click="markDone()" id="button" class="block">SKICKA IVÄG</button>
+        </div>
+
+        <div hidden id="confirmForm">
+          <br>
+          Thank you for your order!<br><br>
+          MAT<br>
+          <div id="orderFood"></div><br>
+          ADRESS:
+          <div id="orderAdress"></div><br>
+          
+        </div>
+        
+      </section>
     </main>
-    <hr>
     <footer>
-      Lisa Bevemyr beautiful burgers inc.
+      Lisa Bevemyr beautiful burgers co.
     </footer>
   </body>
 </html>

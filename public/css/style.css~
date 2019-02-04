@@ -1,0 +1,222 @@
+body {
+    font-family: 'Heebo', sans-serif;
+    margin: 0;
+}
+
+#header {
+    object-fit: cover;
+    object-position: 100% 50;
+    width: 100%;
+    height: 700px;
+}
+
+h1 {
+    font-family: 'Abril Fatface', cursive;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, 100%);
+    font-size: 60px;
+    font-weight: bolder;
+    color: white;
+    width: 900px;
+    text-align: center;
+}
+
+h2 {
+    font-family: 'Abril Fatface', cursive;
+    font-weight: 100;
+    font-size: 50px;
+    margin: 0px 100px;
+    padding: 30px 0px;
+}
+
+section > p {
+    margin: 30px 200px;
+}
+
+.wrapper {
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: 33% 33% 33%;
+    background-color: #fff;
+    color: black;
+    justify-items: center;
+    text-align: center;
+}
+
+.box {
+    color: black;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 150%;
+}
+
+ul {
+    font-size: 12px;
+    text-align: center; 
+}
+
+@media screen and (min-width: 799px) {
+    .fire {
+        grid-column: 1;
+    }
+    .sea {
+        grid-column: 2;
+    }
+    .mountain {
+        grid-column: 3;
+    }
+    .forest {
+        grid-column: 1;
+        grid-row: 2;
+    }
+    .snow {
+        grid-column: 2;
+        grid-row: 2;
+    }
+    .rain {
+        grid-column: 3;
+        grid-row: 2;
+    }
+    .cloud {
+        grid-column: 1;
+        grid-row: 3;
+    }
+    .wind {
+        grid-column: 2;
+        grid-row: 3;
+    }
+    .roompic {
+        grid-column: 3;
+        grid-row: 3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .roomtext {
+        grid-column: 3;
+        grid-row: 3;
+        color: white;
+        padding: 70px 0px;
+        font-family: 'Abril Fatface', cursive;
+    }
+
+}
+
+@media screen and (max-width: 800px) {
+    .fire {
+        grid-column: 1;
+        grid-row: 1;
+    }
+    .sea {
+        grid-column: 1;
+        grid-row: 2;
+    }
+    .mountain {
+        grid-column: 1;
+        grid-row: 3;
+    }
+    .forest {
+        grid-column: 1;
+        grid-row: 4;
+    }
+    .snow {
+        grid-column: 1;
+        grid-row: 5;
+    }
+    .rain {
+        grid-column: 1;
+        grid-row: 6;
+    }
+    .cloud {
+        grid-column: 1;
+        grid-row: 7;
+    }
+    .wind {
+        grid-column: 1;
+        grid-row: 8;
+    }
+    .roompic {
+        grid-column: 1;
+        grid-row: 9;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .roomtext {
+        grid-column: 1;
+        grid-row: 9;
+        color: white;
+        padding: 70px 0px;
+        font-family: 'Abril Fatface', cursive;
+    }
+
+}
+
+
+#gluten {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#display {
+    margin: auto;
+    text-align: center;
+}
+
+table.center {
+    text-align: center; 
+    margin-left: auto; 
+    margin-right: auto; 
+    width: 1000px;
+}
+
+ul {
+    text-align: left;
+}
+
+#information {
+    margin: 0;
+    text-align: center;
+    background-color: darkseagreen;
+    color: white;
+    padding: 0;
+}
+
+#box {
+    border: 10px inset darkolivegreen;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    width: 500px
+}
+
+#arrow {
+    padding: 20px;
+}
+
+
+.block {
+  display: block;
+  width: 100%;
+  height: 100px;
+  border: none;
+  background-color: mediumseagreen;
+  color: black;
+  padding: 14px 28px;
+  margin: 70px 0px 0px 0px;
+  font-size: 30px;
+  font-weight: bolder;
+  cursor: pointer;
+  text-align: center;
+}
+
+.block:hover {
+  background-color: darkolivegreen;
+  color: black;
+}
+
+footer {
+    background-color: darkseagreen;
+}
