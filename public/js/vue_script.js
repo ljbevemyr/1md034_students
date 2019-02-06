@@ -1,27 +1,3 @@
-/*function MenuItem(bn, bs, a, im) {
-    this.burgerName = bn; 
-    this.burgerSpice = bs;
-    this.allergies = a;
-    this.image = im;
-    this.nameSpice = function() {
-        return this.burgerName + ' ' + this.burgerSpice;
-    };
-}
-
-var fireBurger = new MenuItem('Fire burger', '2', 'Gluten', "https://www.bacoaburger.com/wp-content/uploads/labacoa-bacoa-burger-426x278.jpg");
-
-var snowBurger = new MenuItem('Snow burger', '3', 'Gluten och Lactose', "https://www.bacoaburger.com/wp-content/uploads/b-montesa-2-394x278.jpg");
-
-var rainBurger = new MenuItem('Rain burger', '1', '', "https://www.bacoaburger.com/wp-content/uploads/australiana-bacoa-burger-392x278.jpg");
-
-var windBurger = new MenuItem('Wind burger', '3', 'Gluten och Lactose', "https://www.bacoaburger.com/wp-content/uploads/japonesa-bacoa-burger-392x278.jpg");
-
-var stormBurger = new MenuItem('Storm burger', '2', 'Lactose', "https://www.bacoaburger.com/wp-content/uploads/clasica-bacoa-burger-395x278.jpg");
-
-var menuArray = [fireBurger, snowBurger, rainBurger, windBurger, stormBurger];
-var indexArray = ["fire", "sea", "mountain", "forest", "snow", "rain", "cloud", "wind"];
-*/
-
 new Vue({
   el: '#menuList',
   data: {
@@ -31,16 +7,28 @@ new Vue({
  
 new Vue({
     el: '#order',
+    data: {
+        showorder: false,
+        burger: "tom",
+        namn: "tom",
+        email: "tom",
+        gata: "tom",
+        husnummet: "tom",
+        betalmetod: "tom",
+        identitet: "tom"
+    },
     methods: {
         markDone: function() {
-            var confirmForm = document.getElementById('confirmForm');
-            var food = document.getElementById('orderFood');
-            food.innerHTML = getBurgers().join(", ");
-            
-            var adress = document.getBurgers('orderAdress');
-            adress.innerHTML = 
-            
-            confirmForm.style.display = "block";
+            var data = getFormData();
+            this.showorder = true;
+            this.burger = getBurgers().join(", ");
+            this.namn = data[0];
+            this.email = data[1];
+            this.gata = data[2];
+            this.husnummer = data[3];
+            this.betalmetod = data[4];
+            this.identitet = data[5];
+
         }   
     }
 });

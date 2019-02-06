@@ -23,8 +23,6 @@
 
         <h2>Välj din burgare</h2>
         <p>Välj balnd någon av våra fantastiska burgare! Vi har något för alla, det kan jag lova. Om du trotts allt inte är sugen på något av detta går det bra att komponera ihop din egna burgare, lägga till något eller dra av. Vi är väldigt flexibelt folk här på resturangen och hoppas du ska njuta!</p>
-
-        <!--<div id="menuJava" class="wrapper"></div>-->
         
         <div id="menuList" class="wrapper">
           <div v-for="burger in burgers" class="box" v-bind:class=burger.grid>
@@ -36,87 +34,6 @@
               <li> {{ burger.allergies }} </li>
           <div>
         </div>
-        
-        <!--<div class="wrapper">
-            <div class="box fire">
-              Fire burger<br>
-              <img src="https://www.bacoaburger.com/wp-content/uploads/labacoa-bacoa-burger-426x278.jpg" alt="Fire burger" title="Not cold as ice" width="300">
-            <ul>
-              <li>Riktigt het</li>
-              <li>Jalepeno, hickory, hot sauce och tabasco</li>
-              <li>Tufft bröd (<span id="gluten">gluten</span>)</li>
-            </ul>
-          </div>
-          <div class="box sea">
-            Sea burger<br>
-            <img src="https://www.bacoaburger.com/wp-content/uploads/b-montesa-2-394x278.jpg" alt="Sea burger" title="Fortsätt simma" width="300">
-            <ul>
-              <li>Fisk från vattnet</li>
-              <li>Spår av sjöljungfruhost</li>
-              <li>Flytande bröd (<span id="gluten">gluten</span>)</li>
-            </ul>
-          </div>
-          <div class="box mountain">
-            Mountain burger<br>
-            <img src="https://www.bacoaburger.com/wp-content/uploads/australiana-bacoa-burger-392x278.jpg" alt="Mountain burger" title="Ain't no mountain high enough" width="300">
-            <ul>
-              <li>Bergsgetternas favorit</li>
-              <li>Grönt från fågel, fisk och mittemellan</li>
-              <li>Flygande bröd</li>
-            </ul>
-          </div>
-          <div class="box forest">
-            Forest burger<br>
-            <img src="https://www.bacoaburger.com/wp-content/uploads/japonesa-bacoa-burger-392x278.jpg" alt="Forest burger" title="Deep in the green" width="300">
-            <ul>
-              <li>Många höga smaktoppar</li>
-              <li>Innehåller barr</li>
-              <li>Mossigt bröd</li>
-            </ul>
-          </div>
-          <div class="box snow">
-            Snow burger<br>
-            <img src="https://www.bacoaburger.com/wp-content/uploads/clasica-bacoa-burger-395x278.jpg" alt="Snow burger" title="Yes, cold as ice" width="300">
-            <ul>
-              <li>Local fave</li>
-              <li>Don't eat yellow snow</li>
-              <li>Kallt bröd</li>
-            </ul>
-          </div>
-          <div class="box rain">
-            Rain burger<br>
-            <img src="https://www.bacoaburger.com/wp-content/uploads/manchego-bacoa-burger-392x278.jpg" alt="Rain burger" title="Singing in the rain" width="300">
-            <ul>
-              <li>Singing in the rain</li>
-              <li>It's raining men</li>
-              <li>Sjögurkor</li>
-            </ul>
-          </div>
-          <div class="box cloud">
-            Cloud burger<br>
-            <img src="https://www.bacoaburger.com/wp-content/uploads/roost-bacoa-burger-426x278.jpg" alt="Cloud burger" title="Abouve the clouds" width="300">
-            <ul>
-              <li>Kritiker beskriver den lite som luft</li>
-              <li>Innehåller ingenting</li>
-              <li>Flygande bröd</li>
-            </ul>
-          </div>
-          <div class="box wind">
-            Wind burger<br>
-            <img src="https://www.bacoaburger.com/wp-content/uploads/b-gvegano-389x278.jpg" alt="Wind burger" title="Burgers of the wind" width="300">
-            <Ul>
-              <li>Sjukt snabb</li>
-              <li>Passar bra med en Briska</li>
-              <li>Flygande bröd</li>
-            </ul>
-          </div>
-          <div class="box roompic">
-            <img src="https://janniolssondeler.com/wp-content/uploads/2019/01/janni-deler-bush-radio-lombok-5.jpg" alt="Room" title="Simply a cozy place" width="300">
-          </div>
-          <div class="box roomtext">
-            "hämtmat är livet.."
-          </div>
-        </div> -->
       </section>
       <section id="information">
         <h2>Kundinformation</h2>
@@ -170,21 +87,22 @@
             <input type="radio" id="farbrorBåtsman" name="i"> Farbror Båtsman
           </p>
         </form>
-        <!-- <button id="button" class="block">SKICKA IVÄG</button>-->
         <div id="order">
           <button v-on:click="markDone()" id="button" class="block">SKICKA IVÄG</button>
+          <div v-if="showorder" class="confirmForm">
+            <h2>mat</h2>
+            {{ burger }}<br>
+            <h2>adress</h2>
+            {{ namn }}<br>
+            {{ email }}<br>
+            {{ gata }}<br>
+            {{ husnummer }}<br>
+            <h2>betalmetod</h2>
+            {{ betalmetod }}<br>
+            <h2>identitet</h2>
+            {{ identitet }}<br><br>
+          </div>
         </div>
-
-        <div hidden id="confirmForm">
-          <br>
-          Thank you for your order!<br><br>
-          MAT<br>
-          <div id="orderFood"></div><br>
-          ADRESS:
-          <div id="orderAdress"></div><br>
-          
-        </div>
-        
       </section>
     </main>
     <footer>

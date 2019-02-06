@@ -217,19 +217,14 @@ ul {
   color: black;
 }
 
-#confirmForm {
+.confirmForm {
     background-color: white;
     color: black;
     border-style: solid;
-    border-color: #ec895a;
+    border-color: darkseagreen;
     border-width: 20px;
-    font-family: 'Abril Fatface', cursive;
-    font-size: 30px;
-}
-
-#orderInfo {
     font-family: 'Heebo', sans-serif;
-    font-size: 15px;
+    font-size: 20px;
 }
 
 footer {
