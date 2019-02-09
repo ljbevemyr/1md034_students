@@ -1,11 +1,16 @@
+s
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <script type="text/javascript" src="js/menu.js" defer></script>
     <!--<script src="js/js_script.js" defer></script>-->
     <script src="https://vuejs.org/js/vue.js" defer></script>
+    <script src="/socket.io/socket.io.js" defer></script>
     <script src="js/vue_script.js" defer></script>
+    <!--<script src="js/deli-very.js" defer></script>-->
+    <link rel="stylesheet" href="css/deli-very.css">
     <link rel="icon" type="img/gif/png" href="Https://www.bacoaburger.com/wp-content/uploads/labacoa-bacoa-burger-426x278.jpg">
     <link href="https://fonts.googleapis.com/css?family=Heebo" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
@@ -46,15 +51,7 @@
           <p>
             <label for="email">Email</label><br>
             <input type="text" id="email" name="e" required="required" placeholder="kalle@anka.se">
-          </p>
-          <p>
-            <label for="gata">Gata</label><br>
-            <input type="text" id="gata" name="g" required="required" placeholder="Vintergatan">
-          </p>
-          <p>
-            <label for="husnummer">Husnummer</label><br>
-            <input type="text" id="husnummer" name="hn" required="required" placeholder="42">
-          </p>
+          </p>          
         </form>
 
         <img src="http://freevector.co/wp-content/uploads/2009/10/60920-two-down-arrows.png" alt="arrow" title="arrow" id="arrow" width="50">
@@ -70,7 +67,21 @@
           </select>
         </p>
 
-        <img src="http://freevector.co/wp-content/uploads/2009/10/60920-two-down-arrows.png" alt="arrow" title="arrow" id="arrow" width="50">
+        <Img src="http://freevector.co/wp-content/uploads/2009/10/60920-two-down-arrows.png" alt="arrow" title="arrow" id="arrow" width="50">
+        
+        <h2> Click in the map! </h2>
+        <a href="/dispatcher" target="_blank">Open dispatcher in new window</a>.
+        <div class="view-box">
+          <div id="dots" v-on:click="displayOrder">
+            <div 
+              v-for="(order, key) in orders"
+              v-bind:style="{ left: order.details.x + 'px', top: order.details.y + 'px'}">
+              {{key}}
+            </div>
+          </div>
+        </div>
+        
+        <Img src="http://freevector.co/wp-content/uploads/2009/10/60920-two-down-arrows.png" alt="arrow" title="arrow" id="arrow" width="50">
 
         <form id="box">
           <label for="identitet">Identitet</label><br>
@@ -95,8 +106,6 @@
             <h2>adress</h2>
             {{ namn }}<br>
             {{ email }}<br>
-            {{ gata }}<br>
-            {{ husnummer }}<br>
             <h2>betalmetod</h2>
             {{ betalmetod }}<br>
             <h2>identitet</h2>
