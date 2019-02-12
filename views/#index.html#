@@ -73,9 +73,8 @@ s
         <div class="view-box">
           <div id="dots" v-on:click="displayOrder">
             <div 
-              v-for="(order, key) in orders"
               v-bind:style="{ left: coordinats.x + 'px', top: coordinats.y + 'px'}">
-              T
+              {{"T"}}
             </div>
           </div>
         </div>

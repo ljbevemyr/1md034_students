@@ -1,11 +1,12 @@
+var socket = io();
+var orderArray = {};
+
 new Vue({
   el: '#menuList',
   data: {
       burgers: food
   }
 })
-var socket = io();
-var orderArray = [];
 
 new Vue({
     el: '#order',
@@ -16,7 +17,7 @@ new Vue({
         email: "tom",
         betalmetod: "tom",
         identitet: "tom",
-        order: orderArray
+        coordinates: {"x":"", "y":""}
     },
     methods: {
         markDone: function() {
@@ -27,8 +28,13 @@ new Vue({
             this.email = data[1];
             this.betalmetod = data[2];
             this.identitet = data[3];
-            socket.emit("addOrder", orderArray);
-        }   
+        },
+        displayOrder: function() {
+            var offset = {x: event.currentTarget.getBoundingClientRect().left,
+                          y: event.currentTarget.getBoundingClientRect().top};
+            this.coordinates.x= event.clientX - 10 - offset.x;
+            this.coordinates.y= event.clientY - 10 - offset.y;
+        }
     }
 });
 
@@ -67,32 +73,3 @@ function getFormData() {
     var formArray = [namn, email, betalmetod, identitet]
     return formArray;
 }
-
-
-
-new Vue({
-    el: '#dots',
-    data: {
-        orders: orderArray,
-    },
-    created: function () {
-        socket.on('initialize', function (data) {
-            this.orders = data.orders;
-        }.bind(this));
-
-        socket.on('currentQueue', function (data) {
-            this.orders = data.orders;
-        }.bind(this));
-    },
-    methods: {
-        displayOrder: function(event) {
-            var offset = {x: event.currentTarget.getBoundingClientRect().left,
-                          y: event.currentTarget.getBoundingClientRect().top};
-            this.orders.push({orderId: "T",
-                              details: {x: event.clientX - 10 - offset.x,
-                                        y: event.clientY - 10 - offset.y},
-                              orderItems: ["Pasta", "Tomat"]
-                             });
-        }
-    }
-});
