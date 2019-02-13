@@ -12,15 +12,24 @@ new Vue({
     el: '#order',
     data: {
         showorder: false,
+        showdot: false,
         burger: "tom",
         namn: "tom",
         email: "tom",
         betalmetod: "tom",
         identitet: "tom",
-        coordinates: {"x":"", "y":""}
+        cord: {"x":"", "y":""}
     },
     methods: {
-        markDone: function() {
+        displayOrder: function() {
+            var offset = {x: event.currentTarget.getBoundingClientRect().left,
+                          y: event.currentTarget.getBoundingClientRect().top};
+            this.cord.x= event.clientX - 10 - offset.x;
+            this.cord.y= event.clientY - 10 - offset.y;
+            this.showdot = true;
+            console.log("hello!");
+        },
+        addOrder: function() {
             var data = getFormData();
             this.showorder = true;
             this.burger = getBurgers().join(" - ");
@@ -28,12 +37,6 @@ new Vue({
             this.email = data[1];
             this.betalmetod = data[2];
             this.identitet = data[3];
-        },
-        displayOrder: function() {
-            var offset = {x: event.currentTarget.getBoundingClientRect().left,
-                          y: event.currentTarget.getBoundingClientRect().top};
-            this.coordinates.x= event.clientX - 10 - offset.x;
-            this.coordinates.y= event.clientY - 10 - offset.y;
         }
     }
 });
