@@ -27,7 +27,6 @@ new Vue({
             this.cord.x= event.clientX - 10 - offset.x;
             this.cord.y= event.clientY - 10 - offset.y;
             this.showdot = true;
-            console.log("hello!");
         },
         addOrder: function() {
             var data = getFormData();
@@ -37,6 +36,7 @@ new Vue({
             this.email = data[1];
             this.betalmetod = data[2];
             this.identitet = data[3];
+            console.log("hello!");
         }
     }
 });
