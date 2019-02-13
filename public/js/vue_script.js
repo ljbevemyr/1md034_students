@@ -37,7 +37,14 @@ new Vue({
             this.betalmetod = data[2];
             this.identitet = data[3];
             console.log("hello!");
+
+            socket.emit("addOrder", { orderId: "T", 
+                                      details: { x: this.cord.x, 
+                                                 y: this.cord.y},
+                                      orderItems: [this.burger]
+                                    });
         }
+        
     }
 });
 
