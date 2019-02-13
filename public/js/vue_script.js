@@ -18,14 +18,15 @@ new Vue({
         email: "tom",
         betalmetod: "tom",
         identitet: "tom",
-        cord: {"x":"", "y":""}
+        orderID: 0,
+        order: {cord: {"x":"", "y":""}}
     },
     methods: {
         displayOrder: function() {
             var offset = {x: event.currentTarget.getBoundingClientRect().left,
                           y: event.currentTarget.getBoundingClientRect().top};
-            this.cord.x= event.clientX - 10 - offset.x;
-            this.cord.y= event.clientY - 10 - offset.y;
+            this.order.cord.x= event.clientX - 10 - offset.x;
+            this.order.cord.y= event.clientY - 10 - offset.y;
             this.showdot = true;
         },
         addOrder: function() {
@@ -38,11 +39,17 @@ new Vue({
             this.identitet = data[3];
             console.log("hello!");
 
-            socket.emit("addOrder", { orderId: "T", 
-                                      details: { x: this.cord.x, 
-                                                 y: this.cord.y},
-                                      orderItems: [this.burger]
+            this.orderID = this.orderID + 1;
+            socket.emit("addOrder", { orderId: this.orderID, 
+                                      details: { x: this.order.cord.x, 
+                                                 y: this.order.cord.y},
+                                      orderItems: [this.burger],
+                                      name: this.namn,
+                                      email: this.email,
+                                      payment: this.betalmetod,
+                                      identity: this.identitet
                                     });
+            console.log(this.identitet);
         }
         
     }
